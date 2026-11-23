@@ -1,29 +1,72 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#102b50"><title>PALAWIFI Admin Dashboard</title>
-<link rel="stylesheet" href="admin.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PALAWIFI Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
 <body>
-<header class="top"><a class="brand" href="index.html">PALA<span>WIFI</span></a><span class="tag">ADMIN PANEL · DEMO</span></header>
-<main class="wrap">
-<section class="intro"><div><p class="eyebrow">CONTROL CENTER</p><h1>Dashboard</h1><p class="muted">Welcome to your PALAWIFI management preview.</p></div><a class="portal" href="index.html">View portal ↗</a></section>
-<section class="stats">
-<article><span>Vouchers created</span><strong id="count">0</strong><small>In this demo session</small></article>
-<article><span>Active packages</span><strong>3</strong><small>₱1 · ₱5 · ₱10</small></article>
-<article><span>Total sales</span><strong>₱0</strong><small>Demo only · not connected</small></article>
-</section>
-<section class="panel">
-<div class="panel-head"><div><h2>Create voucher</h2><p class="muted">Generate a sample code for the design preview.</p></div><span class="pill">DEMO MODE</span></div>
-<label for="package">Choose package</label>
-<select id="package"><option value="1|10 minutes">₱1 — 10 minutes</option><option value="5|1 hour">₱5 — 1 hour</option><option value="10|3 hours">₱10 — 3 hours</option></select>
-<button id="create" class="primary">＋ Generate sample voucher</button>
-<p id="notice" class="notice" role="status">Sample codes are not valid for internet access.</p>
-</section>
-<section class="panel">
-<div class="panel-head"><div><h2>Voucher list</h2><p class="muted">Codes generated during this browser session.</p></div><button id="clear" class="quiet">Clear list</button></div>
-<div class="table-wrap"><table><thead><tr><th>Voucher code</th><th>Package</th><th>Duration</th><th>Status</th></tr></thead><tbody id="rows"><tr class="empty"><td colspan="4">No sample vouchers yet.</td></tr></tbody></table></div>
-</section>
-<section class="warning"><strong>Important — prototype only</strong><p>This dashboard runs only in your browser. It has no secure admin login, database, payment recording, voucher validation, or connection to the ZLT S10G / TP-Link EAP. Generated sample codes do not grant WiFi access. A secure backend and compatible captive-portal gateway are required before real use.</p></section>
-</main>
-<footer>PALAWIFI · Made by: <strong>Don Genciano</strong></footer>
-<script src="admin.js"></script></body></html>
+  <main class="page">
+    <section id="loginView" class="panel login-panel">
+      <div class="brand-mark">P</div>
+      <p class="eyebrow">PALAWIFI</p>
+      <h1>Admin Login</h1>
+      <p class="muted">Sign in to open the demo dashboard.</p>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" autocomplete="username" required placeholder="Enter username">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required placeholder="Enter password">
+        <p id="loginError" class="error" role="alert"></p>
+        <button class="primary full" type="submit">Login</button>
+      </form>
+      <p class="demo-note">Demo login only — not secure account protection.</p>
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PALAWIFI</p>
+          <h1>Admin Dashboard</h1>
+        </div>
+        <button id="logoutBtn" class="secondary" type="button">Log out</button>
+      </header>
+
+      <div class="notice">DEMO MODE: vouchers are temporary browser samples. They do not provide internet access.</div>
+
+      <section class="stats">
+        <article class="stat-card"><span>Total generated</span><strong id="totalCount">0</strong></article>
+        <article class="stat-card"><span>Available samples</span><strong id="availableCount">0</strong></article>
+      </section>
+
+      <section class="panel">
+        <h2>Generate Voucher</h2>
+        <label for="packageSelect">Choose package</label>
+        <select id="packageSelect">
+          <option value="₱1 — 10 Minutes">₱1 — 10 Minutes</option>
+          <option value="₱5 — 1 Hour" selected>₱5 — 1 Hour</option>
+          <option value="₱10 — 3 Hours">₱10 — 3 Hours</option>
+        </select>
+        <button id="generateBtn" class="primary full" type="button">Generate Voucher</button>
+        <p id="generatedCode" class="generated-code" aria-live="polite">Your sample code will appear here.</p>
+      </section>
+
+      <section class="panel">
+        <div class="list-heading">
+          <h2>Voucher List</h2>
+          <button id="clearBtn" class="text-button" type="button">Clear list</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Voucher Code</th><th>Package</th></tr></thead>
+            <tbody id="voucherRows"><tr><td colspan="2" class="empty">No sample vouchers yet.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+      <p class="credit">Made by: Don Genciano</p>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
