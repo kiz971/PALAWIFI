@@ -14,3 +14,6 @@ Those functions require a compatible captive-portal gateway and a secure server-
 
 ## Preview
 Open `index.html` in a browser, or publish the files using GitHub Pages.
+
+
+V7 update: Added an ADMIN LOGIN link in the portal header. The link opens admin.html in the same PALAWIFI site. Admin access remains a browser-only demo and is not secure authentication.

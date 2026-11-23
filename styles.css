@@ -37,6 +37,15 @@ body {
   text-decoration: none;
 }
 .brand span { color: #3978b8; }
+.header-actions { display: flex; align-items: center; gap: 9px; }
+.admin-login-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 36px; padding: 0 13px; border-radius: 999px;
+  background: var(--navy); color: #fff; text-decoration: none;
+  font-size: 10px; font-weight: 800; letter-spacing: .45px;
+  box-shadow: 0 4px 10px rgba(16,43,80,.13);
+}
+.admin-login-link:active { background: var(--navy-dark); transform: translateY(1px); }
 .status {
   display: inline-flex;
   align-items: center;
@@ -122,7 +131,10 @@ footer strong { color: var(--navy); }
 footer small { display: block; margin-top: 8px; font-size: 10px; }
 
 @media (max-width: 420px) {
-  .site-header { height: 62px; padding: 0 17px; }
+  .site-header { height: 62px; padding: 0 12px; }
+  .header-actions { gap: 6px; }
+  .status { padding: 7px 8px; font-size: 10px; gap: 6px; }
+  .admin-login-link { min-height: 34px; padding: 0 9px; font-size: 9px; }
   .page-wrap { width: min(100% - 26px, 620px); }
   .welcome { padding-top: 33px; }
   .login-card { padding: 20px 17px; }
