@@ -21,7 +21,7 @@
         <p id="loginError" class="error" role="alert"></p>
         <button class="primary full" type="submit">Login</button>
       </form>
-      <p class="demo-note">Demo login only — not secure account protection.</p>
+      <p class="demo-note">Demo login only — this public website does not securely protect an admin account.</p>
     </section>
 
     <section id="dashboardView" class="dashboard hidden">
@@ -29,24 +29,47 @@
         <div>
           <p class="eyebrow">PALAWIFI</p>
           <h1>Admin Dashboard</h1>
+          <p class="muted small">Welcome back, Admin</p>
         </div>
         <button id="logoutBtn" class="secondary" type="button">Log out</button>
       </header>
 
-      <div class="notice">DEMO MODE: vouchers are temporary browser samples. They do not provide internet access.</div>
+      <div class="notice">DEMO MODE: voucher records and sales figures are sample data stored only in this browser session. They do not validate vouchers or provide internet access.</div>
+
+      <section class="profile panel">
+        <div class="avatar">A</div>
+        <div class="profile-copy">
+          <strong>Administrator</strong>
+          <span>PALAWIFI System Admin</span>
+        </div>
+        <span class="profile-tag">DEMO</span>
+      </section>
 
       <section class="stats">
-        <article class="stat-card"><span>Total generated</span><strong id="totalCount">0</strong></article>
-        <article class="stat-card"><span>Available samples</span><strong id="availableCount">0</strong></article>
+        <article class="stat-card"><span>Total Sales</span><strong id="totalSales">₱0</strong><small>Sample generated vouchers</small></article>
+        <article class="stat-card"><span>Total Vouchers</span><strong id="totalCount">0</strong><small>All sample vouchers</small></article>
+        <article class="stat-card"><span>Unused Vouchers</span><strong id="unusedCount">0</strong><small>Not marked as used</small></article>
+        <article class="stat-card"><span>Used Vouchers</span><strong id="usedCount">0</strong><small>Marked used in this demo</small></article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">OVERVIEW</p><h2>Daily Sales Report</h2></div>
+          <span id="reportDate" class="date-chip">Today</span>
+        </div>
+        <div class="report-grid">
+          <div class="report-item"><span>Vouchers generated today</span><strong id="todayCount">0</strong></div>
+          <div class="report-item"><span>Sales today</span><strong id="todaySales">₱0</strong></div>
+        </div>
       </section>
 
       <section class="panel">
         <h2>Generate Voucher</h2>
         <label for="packageSelect">Choose package</label>
         <select id="packageSelect">
-          <option value="₱1 — 10 Minutes">₱1 — 10 Minutes</option>
-          <option value="₱5 — 1 Hour" selected>₱5 — 1 Hour</option>
-          <option value="₱10 — 3 Hours">₱10 — 3 Hours</option>
+          <option value="1" data-label="₱1 — 10 Minutes">₱1 — 10 Minutes</option>
+          <option value="5" data-label="₱5 — 1 Hour" selected>₱5 — 1 Hour</option>
+          <option value="10" data-label="₱10 — 3 Hours">₱10 — 3 Hours</option>
         </select>
         <button id="generateBtn" class="primary full" type="button">Generate Voucher</button>
         <p id="generatedCode" class="generated-code" aria-live="polite">Your sample code will appear here.</p>
@@ -54,13 +77,13 @@
 
       <section class="panel">
         <div class="list-heading">
-          <h2>Voucher List</h2>
+          <div><p class="eyebrow">RECORDS</p><h2>Voucher List</h2></div>
           <button id="clearBtn" class="text-button" type="button">Clear list</button>
         </div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Voucher Code</th><th>Package</th></tr></thead>
-            <tbody id="voucherRows"><tr><td colspan="2" class="empty">No sample vouchers yet.</td></tr></tbody>
+            <thead><tr><th>Voucher Code</th><th>Package</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="voucherRows"><tr><td colspan="4" class="empty">No sample vouchers yet.</td></tr></tbody>
           </table>
         </div>
       </section>
