@@ -12,14 +12,14 @@
       <div class="brand-mark">P</div>
       <p class="eyebrow">PALAWIFI</p>
       <h1 id="loginTitle">Admin Login</h1>
-      <p id="loginIntro" class="muted">Create a password for this browser to set up the demo admin.</p>
+      <p id="loginIntro" class="muted">Sign in to manage your PALAWIFI dashboard.</p>
       <form id="loginForm">
         <label for="username">Username</label>
         <input id="username" type="text" autocomplete="username" required placeholder="Enter username">
         <label for="password">Password</label>
         <input id="password" type="password" autocomplete="current-password" required placeholder="Enter password">
         <p id="loginError" class="error" role="alert"></p>
-        <button id="loginButton" class="primary full" type="submit">Set Admin Password</button>
+        <button id="loginButton" class="primary full" type="submit">Log in</button>
       </form>
       <p class="demo-note">DEMO ONLY: login details are stored in this browser and are not secure account protection.</p>
     </section>
@@ -63,16 +63,33 @@
         </div>
       </section>
 
+      <section class="panel" id="voucherDesignPanel">
+        <div class="section-heading">
+          <div><p class="eyebrow">VOUCHER DESIGN</p><h2>Voucher Text & Time Rates</h2></div>
+          <span class="profile-tag">CUSTOMIZE</span>
+        </div>
+        <label for="voucherTopText">Editable text above voucher code</label>
+        <input id="voucherTopText" type="text" maxlength="90" value="THANK YOU FOR CONNECTING TO PALAWIFI!" placeholder="Enter message above the code">
+        <div class="section-heading rate-heading"><div><h2>Time Rates</h2><p class="muted small">These rates appear below every voucher code.</p></div><button id="addRateBtn" class="secondary" type="button">+ Add rate</button></div>
+        <div id="rateEditor" class="rate-editor"></div>
+        <p id="rateMessage" class="form-message" role="status"></p>
+        <button id="saveVoucherDesignBtn" class="primary full" type="button">Save Voucher Design</button>
+      </section>
+
       <section class="panel">
         <h2>Generate Voucher</h2>
         <label for="packageSelect">Choose package</label>
-        <select id="packageSelect">
-          <option value="1">₱1 — 10 Minutes</option>
-          <option value="5" selected>₱5 — 1 Hour</option>
-          <option value="10">₱10 — 3 Hours</option>
-        </select>
+        <select id="packageSelect"></select>
         <button id="generateBtn" class="primary full" type="button">Generate Voucher</button>
+        <div id="voucherPreview" class="voucher-ticket hidden" aria-live="polite">
+          <p id="ticketMessage" class="ticket-message"></p>
+          <div class="ticket-middle"><div><span class="ticket-label">VOUCHER CODE</span><strong id="ticketCode" class="ticket-code"></strong></div><div id="ticketQr" class="ticket-qr" aria-label="QR code for voucher"></div></div>
+          <div id="ticketRates" class="ticket-rates"></div>
+          <p class="ticket-footer">PALAWIFI • Enjoy your connection</p>
+        </div>
+        <div class="ticket-actions"><button id="printVoucherBtn" class="secondary" type="button" disabled>Print Voucher</button><button id="copyVoucherBtn" class="secondary" type="button" disabled>Copy Code</button></div>
         <p id="generatedCode" class="generated-code" aria-live="polite">Your sample code will appear here.</p>
+        <p class="demo-note">DEMO ONLY: QR code contains the sample voucher code. It does not activate internet access or validate a real voucher.</p>
       </section>
 
       <section class="panel">
@@ -111,6 +128,7 @@
       <p class="credit">Made by: Don Genciano</p>
     </section>
   </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>
