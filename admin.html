@@ -14,16 +14,14 @@
       <h1 id="loginTitle">Admin Login</h1>
       <p id="loginIntro" class="muted">Create a password for this browser to set up the demo admin.</p>
       <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" type="text" autocomplete="username" required placeholder="Enter username">
         <label for="password">Password</label>
         <input id="password" type="password" autocomplete="current-password" required placeholder="Enter password">
-        <div id="confirmWrap">
-          <label for="confirmPassword">Confirm password</label>
-          <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Confirm password">
-        </div>
         <p id="loginError" class="error" role="alert"></p>
         <button id="loginButton" class="primary full" type="submit">Set Admin Password</button>
       </form>
-      <p class="demo-note">DEMO ONLY: this password is saved in this browser. It is not secure account protection and does not sync to other devices.</p>
+      <p class="demo-note">DEMO ONLY: login details are stored in this browser and are not secure account protection.</p>
     </section>
 
     <section id="dashboardView" class="dashboard hidden">
@@ -31,7 +29,7 @@
         <div>
           <p class="eyebrow">PALAWIFI</p>
           <h1>Admin Dashboard</h1>
-          <p class="muted small">Welcome back, Admin</p>
+          <p class="muted small">Welcome back, <span id="welcomeUser">Admin</span></p>
         </div>
         <button id="logoutBtn" class="secondary" type="button">Log out</button>
       </header>
@@ -90,22 +88,25 @@
         </div>
       </section>
 
-      <section class="panel password-panel">
+      <section class="panel password-panel" id="settingsPanel">
         <div class="section-heading">
-          <div><p class="eyebrow">ACCOUNT</p><h2>Change Admin Password</h2></div>
+          <div><p class="eyebrow">ACCOUNT</p><h2>Admin Settings</h2></div>
           <span class="profile-tag">LOCAL DEMO</span>
         </div>
-        <form id="changePasswordForm">
+        <p class="muted small">Palitan dito ang username at password na ginagamit sa pag-login.</p>
+        <form id="accountSettingsForm">
           <label for="currentPassword">Current password</label>
           <input id="currentPassword" type="password" autocomplete="current-password" required placeholder="Enter current password">
+          <label for="newUsername">New username</label>
+          <input id="newUsername" type="text" autocomplete="username" required placeholder="Enter new username">
           <label for="newPassword">New password</label>
           <input id="newPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
           <label for="confirmNewPassword">Confirm new password</label>
           <input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Re-enter new password">
           <p id="changeMessage" class="form-message" role="status"></p>
-          <button class="primary full" type="submit">Save New Password</button>
+          <button class="primary full" type="submit">Save Account Settings</button>
         </form>
-        <p class="demo-note">Important: this only changes the password saved in this browser. It will not update other phones or create a secure online admin account.</p>
+        <p class="demo-note">Important: settings are saved only in this browser. They will not sync to another phone. This public GitHub Pages demo does not provide secure authentication.</p>
       </section>
       <p class="credit">Made by: Don Genciano</p>
     </section>
