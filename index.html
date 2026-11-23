@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b50">
+  <title>PALAWIFI | Connect and Enjoy</title>
+  <meta name="description" content="PALAWIFI voucher login portal. Made by Don Genciano.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PALAWIFI home">PALA<span>WIFI</span></a>
+    <span class="status"><i></i> WiFi Portal</span>
+  </header>
+
+  <main class="page-wrap">
+    <section class="welcome">
+      <div class="eyebrow">WELCOME TO</div>
+      <h1>PALAWIFI</h1>
+      <p class="subtitle">Connect, login, and enjoy your internet.</p>
+    </section>
+
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="card-heading">
+        <div class="wifi-mark" aria-hidden="true">⌁</div>
+        <div>
+          <h2 id="login-title">Voucher Login</h2>
+          <p>Enter your voucher code to continue.</p>
+        </div>
+      </div>
+      <form id="voucher-form">
+        <label for="voucher-code">Voucher code</label>
+        <input id="voucher-code" name="voucher" type="text"
+               placeholder="Enter your voucher code" autocomplete="off"
+               autocapitalize="characters" spellcheck="false" required>
+        <button class="connect-button" type="submit">CONNECT NOW <span aria-hidden="true">→</span></button>
+        <p class="form-message" id="form-message" role="status" aria-live="polite">
+          Voucher login will be activated when the gateway is connected.
+        </p>
+      </form>
+    </section>
+
+    <section class="packages" aria-labelledby="packages-title">
+      <div class="section-heading">
+        <h2 id="packages-title">Available Packages</h2>
+        <p>Choose the voucher that fits your needs.</p>
+      </div>
+      <div class="package-grid">
+        <article class="package-card">
+          <span class="package-label">BASIC</span>
+          <div class="price">₱1</div>
+          <div class="duration">10 MINUTES</div>
+        </article>
+        <article class="package-card featured">
+          <span class="package-label">POPULAR</span>
+          <div class="price">₱5</div>
+          <div class="duration">1 HOUR</div>
+        </article>
+        <article class="package-card">
+          <span class="package-label">VALUE</span>
+          <div class="price">₱10</div>
+          <div class="duration">3 HOURS</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="help-note">
+      <span class="info-icon" aria-hidden="true">i</span>
+      <p>Have a voucher? Enter its code above. If you need help connecting, please ask the WiFi operator.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">PALAWIFI</div>
+    <div>Made by: <strong>Don Genciano</strong></div>
+    <small>© <span id="year"></span> PALAWIFI. All rights reserved.</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
