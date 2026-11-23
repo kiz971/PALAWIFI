@@ -11,17 +11,19 @@
     <section id="loginView" class="panel login-panel">
       <div class="brand-mark">P</div>
       <p class="eyebrow">PALAWIFI</p>
-      <h1>Admin Login</h1>
-      <p class="muted">Sign in to open the demo dashboard.</p>
+      <h1 id="loginTitle">Admin Login</h1>
+      <p id="loginIntro" class="muted">Create a password for this browser to set up the demo admin.</p>
       <form id="loginForm">
-        <label for="username">Username</label>
-        <input id="username" autocomplete="username" required placeholder="Enter username">
         <label for="password">Password</label>
         <input id="password" type="password" autocomplete="current-password" required placeholder="Enter password">
+        <div id="confirmWrap">
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Confirm password">
+        </div>
         <p id="loginError" class="error" role="alert"></p>
-        <button class="primary full" type="submit">Login</button>
+        <button id="loginButton" class="primary full" type="submit">Set Admin Password</button>
       </form>
-      <p class="demo-note">Demo login only — this public website does not securely protect an admin account.</p>
+      <p class="demo-note">DEMO ONLY: this password is saved in this browser. It is not secure account protection and does not sync to other devices.</p>
     </section>
 
     <section id="dashboardView" class="dashboard hidden">
@@ -67,9 +69,9 @@
         <h2>Generate Voucher</h2>
         <label for="packageSelect">Choose package</label>
         <select id="packageSelect">
-          <option value="1" data-label="₱1 — 10 Minutes">₱1 — 10 Minutes</option>
-          <option value="5" data-label="₱5 — 1 Hour" selected>₱5 — 1 Hour</option>
-          <option value="10" data-label="₱10 — 3 Hours">₱10 — 3 Hours</option>
+          <option value="1">₱1 — 10 Minutes</option>
+          <option value="5" selected>₱5 — 1 Hour</option>
+          <option value="10">₱10 — 3 Hours</option>
         </select>
         <button id="generateBtn" class="primary full" type="button">Generate Voucher</button>
         <p id="generatedCode" class="generated-code" aria-live="polite">Your sample code will appear here.</p>
@@ -86,6 +88,24 @@
             <tbody id="voucherRows"><tr><td colspan="4" class="empty">No sample vouchers yet.</td></tr></tbody>
           </table>
         </div>
+      </section>
+
+      <section class="panel password-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">ACCOUNT</p><h2>Change Admin Password</h2></div>
+          <span class="profile-tag">LOCAL DEMO</span>
+        </div>
+        <form id="changePasswordForm">
+          <label for="currentPassword">Current password</label>
+          <input id="currentPassword" type="password" autocomplete="current-password" required placeholder="Enter current password">
+          <label for="newPassword">New password</label>
+          <input id="newPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+          <label for="confirmNewPassword">Confirm new password</label>
+          <input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Re-enter new password">
+          <p id="changeMessage" class="form-message" role="status"></p>
+          <button class="primary full" type="submit">Save New Password</button>
+        </form>
+        <p class="demo-note">Important: this only changes the password saved in this browser. It will not update other phones or create a secure online admin account.</p>
       </section>
       <p class="credit">Made by: Don Genciano</p>
     </section>

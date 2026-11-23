@@ -20,11 +20,12 @@ button { border: 0; border-radius: 9px; cursor: pointer; font-weight: 700; font-
 .full { width: 100%; }
 .secondary { padding: 11px 15px; background: #e8eef6; color: var(--navy); }
 .error { min-height: 18px; margin: 8px 0 0; color: #b42318; font-size: 13px; }
+.form-message { min-height: 18px; margin: 10px 0 0; color: #237344; font-size: 13px; }
+.form-message.error-text { color: #b42318; }
 .demo-note { margin: 20px 0 0; padding: 10px; border-radius: 8px; background: #fff7e6; color: #805b13; font-size: 12px; line-height: 1.45; }
 .hidden { display: none !important; }
 .topbar, .list-heading, .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
 .topbar { margin-bottom: 20px; }
-.topbar .eyebrow { margin-top: 0; }
 .notice { margin-bottom: 16px; padding: 13px 15px; border-radius: 10px; background: #fff4d8; color: #79540b; font-size: 13px; line-height: 1.5; }
 .profile { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; padding: 15px 18px; }
 .avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: white; font-weight: 800; font-size: 19px; }
